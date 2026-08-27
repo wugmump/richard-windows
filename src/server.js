@@ -24,7 +24,7 @@ const defaultConfig = {
   temperature: 0.75
 };
 
-let config = await loadJSON(configPath, defaultConfig);
+let config = { ...defaultConfig, ...(await loadJSON(configPath, {})) };
 let messages = await loadJSON(transcriptPath, [
   assistantMessage("Richard is online. Browser-only this time, because apparently we needed fewer Mac-shaped problems.")
 ]);
@@ -318,4 +318,3 @@ async function saveTranscript() {
   await mkdir(dataDir, { recursive: true });
   await writeFile(transcriptPath, `${JSON.stringify(messages, null, 2)}\n`);
 }
-

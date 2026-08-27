@@ -49,6 +49,25 @@ The default join code is:
 696367
 ```
 
+## One-Step Windows Setup
+
+From PowerShell in this repo:
+
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.\scripts\setup-and-run.ps1
+```
+
+The script checks for Node.js 20+, npm, and Ollama. If `winget` is available, it attempts to install missing prerequisites, starts Ollama, pulls the default model, launches the web UI, and then starts the Richard server.
+
+Useful options:
+
+```powershell
+.\scripts\setup-and-run.ps1 -Port 9443 -JoinCode 696367
+.\scripts\setup-and-run.ps1 -SkipModelPull
+.\scripts\setup-and-run.ps1 -Model "hf.co/TheDrummer/Cydonia-24B-v4.3-GGUF:Q4_K_M"
+```
+
 ## Browser Controls
 
 The whole app is controlled in the browser:
@@ -121,10 +140,8 @@ Implemented:
 Not yet ported:
 
 - Native macOS UI.
-- Raspberry Pi control.
 - Image paste and local vision model integration.
 - Codex bridge.
 - HTTPS certificates.
 
 Those should be added as browser/server features rather than native desktop features.
-
