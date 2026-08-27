@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Richard Windows</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <section id="identityGate" aria-modal="true">
+    <form id="identityPanel">
+      <h1>What's your name, jerkface?</h1>
+      <input id="nameInput" autocomplete="name" autofocus>
+      <button>Enter</button>
+      <p id="identityError"></p>
+    </form>
+  </section>
+
+  <div id="offlineOverlay" role="status" aria-live="polite">Richard is offline</div>
+
+  <main>
+    <header>
+      <strong>Richard</strong>
+      <span id="identityLabel"></span>
+    </header>
+
+    <section id="messages" aria-live="polite"></section>
+    <div id="status"></div>
+
+    <form id="composer">
+      <input id="content" placeholder="Message" autocomplete="off">
+      <button id="settingsButton" type="button" title="Settings" aria-label="Settings">⚙</button>
+      <button id="sendButton" type="submit">Send</button>
+    </form>
+  </main>
+
+  <dialog id="settingsDialog" aria-labelledby="settingsTitle">
+    <div id="settingsHeader">
+      <h2 id="settingsTitle">Settings</h2>
+      <button id="closeSettingsButton" type="button" title="Close" aria-label="Close">×</button>
+    </div>
+    <form id="settingsBody">
+      <label>
+        <span>Backend URL</span>
+        <input id="backendURL" autocomplete="off">
+      </label>
+      <label>
+        <span>Model</span>
+        <input id="modelName" autocomplete="off">
+      </label>
+      <label>
+        <span>Join code</span>
+        <input id="joinCode" autocomplete="off">
+      </label>
+      <label>
+        <span>Asshole Level <strong id="assholeValue">50</strong></span>
+        <input id="assholeLevel" type="range" min="0" max="100" step="1">
+      </label>
+      <label>
+        <span>Context messages</span>
+        <input id="maxContextMessages" type="number" min="4" max="60">
+      </label>
+      <label>
+        <span>Max tokens</span>
+        <input id="maxTokens" type="number" min="100" max="4096">
+      </label>
+      <label>
+        <span>Temperature</span>
+        <input id="temperature" type="number" min="0" max="2" step="0.05">
+      </label>
+      <div id="settingsActions">
+        <button id="resetButton" type="button">Reset Chat</button>
+        <button type="submit">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="/assets/app.js"></script>
+</body>
+</html>
+

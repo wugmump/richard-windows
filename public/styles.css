@@ -1,0 +1,221 @@
+:root {
+  color-scheme: light dark;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  background: Canvas;
+  color: CanvasText;
+}
+
+main {
+  max-width: 920px;
+  min-height: 100vh;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: auto 1fr auto auto;
+}
+
+header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px;
+  border-bottom: 1px solid color-mix(in srgb, CanvasText 16%, transparent);
+}
+
+#identityLabel,
+#status {
+  color: color-mix(in srgb, CanvasText 62%, transparent);
+  font-size: 13px;
+}
+
+#messages {
+  padding: 18px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.message {
+  max-width: 78%;
+  display: grid;
+  gap: 4px;
+}
+
+.message.assistant {
+  align-self: flex-start;
+}
+
+.message.user {
+  align-self: flex-end;
+  justify-items: end;
+}
+
+.speaker {
+  color: color-mix(in srgb, CanvasText 62%, transparent);
+  font-size: 13px;
+}
+
+.bubble {
+  max-width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  white-space: pre-wrap;
+  line-height: 1.4;
+  background: color-mix(in srgb, CanvasText 10%, transparent);
+}
+
+.user .bubble {
+  background: AccentColor;
+  color: white;
+}
+
+#status {
+  min-height: 18px;
+  padding: 8px 14px 0;
+}
+
+#status:empty {
+  display: none;
+}
+
+#composer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: 10px;
+  padding: 14px;
+  border-top: 1px solid color-mix(in srgb, CanvasText 16%, transparent);
+}
+
+input,
+button {
+  font: inherit;
+  border-radius: 8px;
+  border: 1px solid color-mix(in srgb, CanvasText 22%, transparent);
+  padding: 10px 12px;
+}
+
+button {
+  background: AccentColor;
+  color: white;
+  border: 0;
+}
+
+button:disabled,
+input:disabled {
+  opacity: .55;
+}
+
+#settingsButton,
+#closeSettingsButton {
+  width: 42px;
+  padding: 0;
+}
+
+#identityGate {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  background: color-mix(in srgb, Canvas 92%, CanvasText 8%);
+}
+
+#identityGate.hidden {
+  display: none;
+}
+
+#identityPanel {
+  width: min(420px, calc(100vw - 32px));
+  display: grid;
+  gap: 12px;
+}
+
+#identityPanel h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+#identityError {
+  min-height: 20px;
+  margin: 0;
+  color: #ff453a;
+}
+
+#offlineOverlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  place-items: center;
+  padding: 24px;
+  background: color-mix(in srgb, Canvas 84%, CanvasText 16%);
+  color: white;
+  font-size: clamp(28px, 7vw, 56px);
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+#offlineOverlay.visible {
+  display: grid;
+}
+
+dialog {
+  width: min(460px, calc(100vw - 32px));
+  border: 1px solid color-mix(in srgb, CanvasText 22%, transparent);
+  border-radius: 8px;
+  padding: 0;
+  background: Canvas;
+  color: CanvasText;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .35);
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, .35);
+}
+
+#settingsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 14px 16px;
+  border-bottom: 1px solid color-mix(in srgb, CanvasText 14%, transparent);
+}
+
+#settingsHeader h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+#settingsBody {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+}
+
+#settingsBody label {
+  display: grid;
+  gap: 6px;
+  color: color-mix(in srgb, CanvasText 72%, transparent);
+  font-size: 13px;
+}
+
+#settingsBody label span {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+#settingsActions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
